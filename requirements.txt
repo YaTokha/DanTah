@@ -5,4 +5,13 @@ soundfile                 # Для чтения и записи аудио в ф
 ffmpeg-python             # Для использования FFmpeg через Python
 nltk==3.8.1                 # Для токенизации и работы с текстами
 textblob==0.17.1            # Библиотека для анализа тональности
+fastapi
+uvicorn
+torch
+torchvision
+pydantic
+pillow
+numpy
+python-multipart
+pytest
 
