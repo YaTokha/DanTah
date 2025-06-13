@@ -6,7 +6,6 @@ from typing import Tuple
 class SentimentAnalyzer:
     def __init__(self):
         """Инициализация анализатора тональности."""
-        # Загрузка необходимых данных для NLTK
         try:
             nltk.data.find("tokenizers/punkt")
         except LookupError:
