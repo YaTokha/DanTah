@@ -13,4 +13,4 @@ pydantic
 numpy
 python-multipart
 pytest
-
+httpx
