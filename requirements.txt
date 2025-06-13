@@ -1,16 +1,23 @@
-torch==2.0.1              # Для работы с моделями (Whisper)
-whisper==1.0.0             # Библиотека Whisper от OpenAI
-pydub                     # Для работы с аудиофайлами (конвертация форматов)
-soundfile                 # Для чтения и записи аудио в формате WAV
-ffmpeg-python             # Для использования FFmpeg через Python
-nltk==3.8.1                # Для токенизации и работы с текстами
-textblob==0.17.1           # Библиотека для анализа тональности
-torchvision==0.15.2       # TorchVision для предобученных моделей и обработки изображений
-Pillow==10.0.0            # Для работы с изображениями (загрузка и преобразование)
+torch==2.0.1
+torchvision==0.15.2
+Pillow==10.0.0
+
+openai-whisper
+pydub
+soundfile
+ffmpeg-python
+
+nltk==3.8.1
+textblob==0.17.1
+
 fastapi
 uvicorn
 pydantic
-numpy
 python-multipart
+
 pytest
 httpx
+
+numpy<2
+
+
