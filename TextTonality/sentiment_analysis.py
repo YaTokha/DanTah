@@ -22,11 +22,11 @@ class SentimentAnalyzer:
         polarity = analysis.sentiment.polarity
 
         if polarity > 0:
-            sentiment = "позитивный"
+            sentiment = "positive"
         elif polarity < 0:
-            sentiment = "негативный"
+            sentiment = "negative"
         else:
-            sentiment = "нейтральный"
+            sentiment = "neutral"
 
         return sentiment, polarity
 
@@ -34,31 +34,28 @@ class SentimentAnalyzer:
         """
         Сохраняет результат анализа в текстовый файл.
         """
-        os.makedirs(output_dir, exist_ok=True)  # Создание папки, если её нет
-        file_name = "result.txt"
-        file_path = os.path.join(output_dir, file_name)
+        os.makedirs(output_dir, exist_ok=True)
+        file_path = os.path.join(output_dir, "result.txt")
 
         with open(file_path, "w", encoding="utf-8") as f:
-            f.write(f"Исходный текст: {text}\n")
-            f.write(f"Тональность: {sentiment}\n")
-            f.write(f"Полярность: {polarity:.2f}\n")
+            f.write(f"Input text: {text}\n")
+            f.write(f"Sentiment: {sentiment}\n")
+            f.write(f"Polarity: {polarity:.2f}\n")
         print(f"Результат сохранён в файл: {file_path}")
 
 
-# Пример использования
-if __name__ == "__main__":
-    analyzer = SentimentAnalyzer()
+analyzer = SentimentAnalyzer()
 
-    # Ввод текста из консоли
+def analyze(text: str) -> dict:
+    sentiment, polarity = analyzer.analyze_sentiment(text)
+    return {"sentiment": sentiment, "polarity": polarity}
+
+if __name__ == "__main__":
     print("Введите текст для анализа тональности:")
     input_text = input("> ").strip()
-
     try:
-        # Анализ тональности
         sentiment, polarity = analyzer.analyze_sentiment(input_text)
         print(f"Тональность: {sentiment}, Полярность: {polarity:.2f}")
-
-        # Сохранение результата в папку result
         analyzer.save_text_to_file(input_text, sentiment, polarity, output_dir="result")
     except ValueError as e:
         print(f"Ошибка: {e}")
